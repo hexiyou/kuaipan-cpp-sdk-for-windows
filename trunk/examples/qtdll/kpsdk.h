@@ -18,7 +18,6 @@
 #include <QNetworkRequest>
 #include <QNetworkReply>
 #include <QTextCodec>
-#include <QWebFrame>
 #include <QFile>
 #include <QEventLoop>
 #include "publicFun.h"
@@ -78,84 +77,84 @@ public:
     QByteArray            mJsonBuf;
 
 private:
-    void    addTknNonceTimes(QString &paraStr,QString &consKeyStr);
+    void    addTknNonceTimes(QString &paraStr,const QString &consKeyStr);
     int     openFile(QByteArray &buf,const QString &filePath);
-    QString buildReqTknUrl(QString &consKeyStr, QString &consKeySecretStr);
-    QString getReqTknSignature(QString &paraStr,QString &consKeyStr,QString &consKeySecretStr);
+    QString buildReqTknUrl(const QString &consKeyStr,const  QString &consKeySecretStr);
+    QString getReqTknSignature(QString &paraStr,const QString &consKeyStr,const QString &consKeySecretStr);
 
-    QString buildAcesTknUrl(QString &consKeyStr,QString &consKeySecretStr,\
-                              QString &tmpTknStr,QString &tmpTknSercetStr);
-    QString getAcesTknSignature(QString &paraStr,QString &consKeyStr,QString &consKeySecretStr,\
-                                QString &tmpTknStr,QString &tmpTknSercetStr);
+    QString buildAcesTknUrl(const QString &consKeyStr,const QString &consKeySecretStr,\
+                              const QString &tmpTknStr,const QString &tmpTknSercetStr);
+    QString getAcesTknSignature(QString &paraStr,const QString &consKeyStr,const QString &consKeySecretStr,\
+                                const QString &tmpTknStr,const QString &tmpTknSercetStr);
 
-    QString buildUsrInfoUrl(QString &consKeyStr,QString &consKeySecretStr,\
-                            QString &oauTknStr,QString &oauTknSercetStr);
-    QString getUsrInfoSignature(QString &paraStr,QString &consKeyStr,QString &consKeySecretStr,\
-                                QString &oauTknStr,QString &oauTknSercetStr);
+    QString buildUsrInfoUrl(const QString &consKeyStr,const QString &consKeySecretStr,\
+                            const QString &oauTknStr,const QString &oauTknSercetStr);
+    QString getUsrInfoSignature(QString &paraStr,const QString &consKeyStr,const QString &consKeySecretStr,\
+                                const QString &oauTknStr,const QString &oauTknSercetStr);
 
-    QString buildMetaDataUrl(QString &consKeyStr,QString &consKeySecretStr,\
-                             QString &oauTknStr,QString &oauTknSercetStr,\
+    QString buildMetaDataUrl(const QString &consKeyStr,const QString &consKeySecretStr,\
+                             const QString &oauTknStr,const QString &oauTknSercetStr,\
                              bool &isAppPath,QString &dataPath);
-    QString getMetaDataSignature(QString &paraStr,QString &consKeyStr,QString &consKeySecretStr,\
-                                 QString &oauTknStr,QString &oauTknSercetStr,\
+    QString getMetaDataSignature(QString &paraStr,const QString &consKeyStr,const QString &consKeySecretStr,\
+                                 const QString &oauTknStr,const QString &oauTknSercetStr,\
                                  QString &newGetMetaUrl);
 
-    QString buildCreateFolderUrl(QString &consKeyStr,QString &consKeySecretStr,\
-                                 QString &oauTknStr,QString &oauTknSercetStr,\
+    QString buildCreateFolderUrl(const QString &consKeyStr,const QString &consKeySecretStr,\
+                                 const QString &oauTknStr,const QString &oauTknSercetStr,\
                                  bool &isAppPath,QString &folderName);
-    QString getCreateFolderSignature(QString &paraStr,QString &consKeyStr,QString &consKeySecretStr,\
-                                     QString &oauTknStr,QString &oauTknSercetStr,\
+    QString getCreateFolderSignature(QString &paraStr,const QString &consKeyStr,const QString &consKeySecretStr,\
+                                     const QString &oauTknStr,const QString &oauTknSercetStr,\
                                      bool &isAppPath,QString &folderName);
 
-    QString buildDelFileUrl(QString &consKeyStr,QString &consKeySecretStr,\
-                            QString &oauTknStr,QString &oauTknSercetStr,\
+    QString buildDelFileUrl(const QString &consKeyStr,const QString &consKeySecretStr,\
+                            const QString &oauTknStr,const QString &oauTknSercetStr,\
                             bool &isAppPath,QString &fileName,bool &toRecyle);
-    QString getDelFileSignature(QString &paraStr,QString &consKeyStr,QString &consKeySecretStr,\
-                                QString &oauTknStr,QString &oauTknSercetStr,\
+    QString getDelFileSignature(QString &paraStr,const QString &consKeyStr,const QString &consKeySecretStr,\
+                                const QString &oauTknStr,const QString &oauTknSercetStr,\
                                 bool &isAppPath,QString &fileName,bool &toRecyle);
 
-    QString buildMoveFileUrl(QString &consKeyStr,QString &consKeySecretStr,\
-                             QString &oauTknStr,QString &oauTknSercetStr,\
+    QString buildMoveFileUrl(const QString &consKeyStr,const QString &consKeySecretStr,\
+                             const QString &oauTknStr,const QString &oauTknSercetStr,\
                              bool &isAppPath,QString &fromPath,QString &toPath);
-    QString getMoveFileSignature(QString &paraStr,QString &consKeyStr,QString &consKeySecretStr,\
-                                 QString &oauTknStr,QString &oauTknSercetStr,\
+    QString getMoveFileSignature(QString &paraStr,const QString &consKeyStr,const QString &consKeySecretStr,\
+                                 const QString &oauTknStr,const QString &oauTknSercetStr,\
                                  bool &isAppPath,QString &fromPath,QString &toPath);
 
-    QString buildCopyFileUrl(QString &consKeyStr,QString &consKeySecretStr,\
-                             QString &oauTknStr,QString &oauTknSercetStr,\
+    QString buildCopyFileUrl(const QString &consKeyStr,const QString &consKeySecretStr,\
+                             const QString &oauTknStr,const QString &oauTknSercetStr,\
                              bool &isAppPath,QString &fromPath,QString &toPath);
-    QString getCopyFileSignature(QString &paraStr,QString &consKeyStr,QString &consKeySecretStr,\
-                                 QString &oauTknStr,QString &oauTknSercetStr,\
+    QString getCopyFileSignature(QString &paraStr,const QString &consKeyStr,const QString &consKeySecretStr,\
+                                 const QString &oauTknStr,const QString &oauTknSercetStr,\
                                  bool &isAppPath,QString &fromPath,QString &toPath);
 
-    QString buildUploadLocateUrl(QString &consKeyStr,QString &consKeySecretStr,\
-                                 QString &oauTknStr,QString &oauTknSercetStr);
-    QString getUploadLocateSignature(QString &paraStr,QString &consKeyStr,QString &consKeySecretStr,\
-                                     QString &oauTknStr,QString &oauTknSercetStr);
+    QString buildUploadLocateUrl(const QString &consKeyStr,const QString &consKeySecretStr,\
+                                 const QString &oauTknStr,const QString &oauTknSercetStr);
+    QString getUploadLocateSignature(QString &paraStr,const QString &consKeyStr,const QString &consKeySecretStr,\
+                                     const QString &oauTknStr,const QString &oauTknSercetStr);
 
-    QString buildUploadFileUrl(QString &consKeyStr,QString &consKeySecretStr,\
-                               QString &oauTknStr,QString &oauTknSercetStr,\
+    QString buildUploadFileUrl(const QString &consKeyStr,const QString &consKeySecretStr,\
+                               const QString &oauTknStr,const QString &oauTknSercetStr,\
                                const bool &isOverWrite, const bool &isAppPath,\
-                               const QString &toPath,QString &preStr);
-    QString getUploadFileSignature(QString &paraStr,QString &consKeyStr,QString &consKeySecretStr,\
-                                   QString &oauTknStr,QString &oauTknSercetStr,\
+                               const QString &toPath,const QString &preStr);
+    QString getUploadFileSignature(QString &paraStr,const QString &consKeyStr,const QString &consKeySecretStr,\
+                                   const QString &oauTknStr,const QString &oauTknSercetStr,\
                                    const bool &isOverWrite,const bool &isAppPath,\
-                                   const QString &toPath,QString &fullUrl);
-    void    buildMultiPart(QByteArray &data,QString &fileName);
+                                   const QString &toPath,const QString &fullUrl);
+    void    buildMultiPart(QByteArray &data,const QString &fileName);
 
-    QString buildDownFileUrl(QString &consKeyStr,QString &consKeySecretStr,\
-                             QString &oauTknStr,QString &oauTknSercetStr,\
-                             bool &isAppPath,QString &fromPath);
-    QString getDownFileSignature(QString &paraStr,QString &consKeyStr,QString &consKeySecretStr,\
-                                 QString &oauTknStr,QString &oauTknSercetStr,\
-                                 bool &isAppPath,QString &fromPath);
+    QString buildDownFileUrl(const QString &consKeyStr,const QString &consKeySecretStr,\
+                             const QString &oauTknStr,const QString &oauTknSercetStr,\
+                             bool &isAppPath,const QString &fromPath);
+    QString getDownFileSignature(QString &paraStr,const QString &consKeyStr,const QString &consKeySecretStr,\
+                                 const QString &oauTknStr,const QString &oauTknSercetStr,\
+                                 bool &isAppPath,const QString &fromPath);
 
-    QString buildShareFileUrl(QString &consKeyStr,QString &consKeySecretStr,\
-                              QString &oauTknStr,QString &oauTknSercetStr,\
-                              bool &isAppPath,QString &dataPath);
-    QString getShareFileSignature(QString &paraStr,QString &consKeyStr,QString &consKeySecretStr,\
-                                  QString &oauTknStr,QString &oauTknSercetStr,\
-                                  QString &newShareFileUrl);
+    QString buildShareFileUrl(const QString &consKeyStr,const QString &consKeySecretStr,\
+                              const QString &oauTknStr,const QString &oauTknSercetStr,\
+                              bool &isAppPath,const QString &dataPath);
+    QString getShareFileSignature(QString &paraStr,const QString &consKeyStr,const QString &consKeySecretStr,\
+                                  const QString &oauTknStr,const QString &oauTknSercetStr,\
+                                  const QString &newShareFileUrl);
     QUrl                  inputUrl;
     QNetworkRequest       request;
     QNetworkRequest       uploadRequest;
